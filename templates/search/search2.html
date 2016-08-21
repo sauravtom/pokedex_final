@@ -1,0 +1,21 @@
+{% extends "search/base.html" %}
+
+
+
+{% block content %}
+
+	<h1>You Searched for {{search_string}} </h1>
+
+	<p>Results:</p>
+
+		
+	{% for file_name in result_arr %}
+		<img src='static/images/{{file_name}}'>
+	{% endfor %}
+	<br>
+	<code>
+		{{result_arr}}
+	</code>
+
+{% endblock content %}
+

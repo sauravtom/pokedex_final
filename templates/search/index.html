@@ -1,0 +1,30 @@
+{% extends "search/base.html" %}
+
+{% block head %}
+	<title> {{date}} </title>
+	<style type="text/css">
+		img{
+			width: 60px;	
+		}
+	</style>
+{% endblock head %}
+
+
+{% block content %}
+
+	
+{% for pokemon in pokedex %}
+	<p>{{pokemon.id}} {{pokemon.pokemon_name}} : 
+		type {{pokemon.pokemon_type}}</p>
+	<img src='{{pokemon.pokemon_image}}'>	
+	<hr>
+{% endfor %}
+
+
+
+	
+
+
+
+{% endblock content %}
+
