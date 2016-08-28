@@ -1,5 +1,7 @@
 {% extends "search/base.html" %}
 
+{% load custom_filter %}
+
 {% block head %}
 	<title> {{date}} </title>
 	<style type="text/css">
@@ -12,9 +14,52 @@
 
 {% block content %}
 
+{% for i in ''|rangex %}
+	{{i}}
+{% endfor %}
+
+<hr>
+
+{% with name="1" greeting="Hello" %} 
 	
+	{% if name|is_in:"1,2,3,4" %}
+		YES
+	{% endif %}
+
+{% endwith %}
+
+<hr>
+
+{% with "1" as name %} 
+	
+	{% if name|is_in:"1,2,3,4" %}
+		YES
+	{% endif %}
+
+{% endwith %}
+
+<hr>
+
+{% define "Edit" as action %}
+
+{{action}}
+
+<hr>
+
+<!-- {% get_pokemons 'dict' %} -->
+
+<!-- {% get_pokemons 'arr' %} -->
+
+<hr>
+	
+
+{% load staticfiles %}
+
+<img src="{% static "sky.jpg" %}" alt="My image"/>
+<img src="/static/sky.jpg" alt="My image"/>
+
 {% for pokemon in pokedex %}
-	<p>{{pokemon.id}} {{pokemon.pokemon_name}} : 
+	<p>{{pokemon.id}} {{pokemon.pokemon_name}} {{rangex}} : 
 		type {{pokemon.pokemon_type}}</p>
 	<img src='{{pokemon.pokemon_image}}'>	
 	<hr>

@@ -18,5 +18,9 @@ urlpatterns = patterns('',
     #url(r'^search/(?P<foo>\d+)', 'search.views.srch2', name = 'search2'),
     url(r'^login/$', 'django.contrib.auth.views.login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout'),
+
+    url(r'^register/$', 'search.views.register', name='register'),
+    url(r'^login/$', 'search.views.user_login', name='login'),
+    
     url(r'^searchREDIRECT/(?P<search_string>[\*\w\-]+)/$', 'search.views.srchredirect', name = 'searchredirect'),
 )
